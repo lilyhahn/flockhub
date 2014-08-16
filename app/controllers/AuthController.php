@@ -15,7 +15,7 @@ class AuthController extends BaseController{
 		$token_credentials = $connection->getAccessToken($_REQUEST['oauth_verifier']);
 		$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $token_credentials['oauth_token'],
 			$token_credentials['oauth_token_secret']);
-		$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes');
+		$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes'));
 	}
 
 }

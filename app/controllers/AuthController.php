@@ -12,7 +12,8 @@ class AuthController extends BaseController{
 		echo $redirect_url;
 	}
 	public function callback(){
-		$token_credentials = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $_GET["oath_token"], "");
+		$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $token_credentials['oauth_token'],
 			$token_credentials['oauth_token_secret']);
 		$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes'));

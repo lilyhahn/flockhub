@@ -12,11 +12,12 @@ class AuthController extends BaseController{
 	public function handleLogin(){
 		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7");
 		$temporary_credentials = $connection->getRequestToken("http://octogenarian.tk/initial-commit/public/callback");
+		$_SESSION['temp_credentials'] = $temporary_credentials;
 		$redirect_url = $connection->getAuthorizeURL($temporary_credentials); // Use Sign in with Twitter
 		echo $redirect_url;
 	}
 	public function callback(){
-		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $_GET["oauth_token"], "");
+		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $_SESSION['temp_credentials']['oauth_token'], $_SESSION['temp_credentials']['oauth_token_secret']);
 		$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $token_credentials['oauth_token'],
 			$token_credentials['oauth_token_secret']);

@@ -21,7 +21,8 @@ class AuthController extends BaseController{
 		$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 		$connection = new TwitterOAuth("T5VEKYSzlobklcmLi32IJbzZK", "XFJWx6H5skSyobTNn5myeR9S3t5SDLn31QPuXQEWJWv4SfaSy7", $token_credentials['oauth_token'],
 		$token_credentials['oauth_token_secret']);
-		if(is_null(User::where('oauth_token', '=', $token_credentials['oauth_token'])->first())){
+		$isset_user = User::where('oauth_token', '=', $token_credentials['oauth_token'])->first();
+		if(is_null($isset_user)){
 			$user = new User;
 			$user->oauth_token = $token_credentials['oauth_token'];
 			$user->oauth_token_secret = $token_credentials['oauth_token_secret'];

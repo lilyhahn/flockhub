@@ -14,8 +14,7 @@ class User extends Migration {
 	{
 		Schema::create('users', function($table){
 			$table->increments('id');
-			$table->string('oauth_token');
-			$table->string('oauth_token_secret')
+			$table->string('token');
 		});
 	}
 

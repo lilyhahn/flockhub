@@ -16,7 +16,7 @@ class AuthController extends BaseController{
 		echo $redirect_url;
 	}
 	public function callback(){
-		$connection = new TwitterOAuth("***REMOVED***", "***REMOVED***", $_GET["oath_token"], "");
+		$connection = new TwitterOAuth("***REMOVED***", "***REMOVED***", $_GET["oauth_token"], "");
 		$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 		$connection = new TwitterOAuth("***REMOVED***", "***REMOVED***", $token_credentials['oauth_token'],
 			$token_credentials['oauth_token_secret']);

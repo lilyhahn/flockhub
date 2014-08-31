@@ -1,5 +1,5 @@
 <?php
-include(app_path().'\..\vendor/abraham/twitteroauth/twitteroauth/twitteroauth.php');
+include(app_path().'/../vendor/abraham/twitteroauth/twitteroauth/twitteroauth.php');
 
 session_start(); // bad, but using until db is going
 

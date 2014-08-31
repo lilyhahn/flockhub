@@ -22,6 +22,7 @@ class AuthController extends BaseController{
 		$connection = new TwitterOAuth("***REMOVED***", "***REMOVED***", $token_credentials['oauth_token'],
 			$token_credentials['oauth_token_secret']);
 		$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes'));
+		echo $status;
 	}
 
 }

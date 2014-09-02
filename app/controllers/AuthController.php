@@ -38,7 +38,6 @@ class AuthController extends BaseController{
 		$user->handle = $account_info->screen_name;
 		$user->name = $account_info->name;
 		$user->save();
-		dd($user);
 		return Redirect::action('DashboardController@index');
 	}
 

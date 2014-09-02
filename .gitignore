@@ -1,6 +1,7 @@
-/bootstrap/compiled.php
-/app/config/database.php
-/vendor
+bootstrap/compiled.php
+app/config/database.php
+app/config/oauth.php
+vendor
 composer.phar
 composer.lock
 .env.*.php

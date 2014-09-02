@@ -35,6 +35,7 @@ class AuthController extends BaseController{
 		echo("name:" . $account_info->name);
 		echo("id:" . $account_info->id);
 		echo("screen name:" . $account_info->screen_name);
+		die();
 		return Redirect::action('DashboardController@index');
 	}
 

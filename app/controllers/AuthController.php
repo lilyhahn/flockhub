@@ -37,7 +37,7 @@ class AuthController extends BaseController{
 		$user->twitter_id = $account_info->id;
 		$user->handle = $account_info->screen_name;
 		$user->name = $account_info->name;
-		$user0>save();
+		$user->save();
 		dd($user);
 		return Redirect::action('DashboardController@index');
 	}

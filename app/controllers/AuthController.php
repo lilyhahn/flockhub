@@ -28,8 +28,9 @@ class AuthController extends BaseController{
 			$user->oauth_token_secret = $token_credentials['oauth_token_secret'];
 			$user->save();
 		}
-		//$connection->host = "https://api.twitter.com/1.1/";
-		//$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes'));
+		$connection->host = "https://api.twitter.com/1.1/";
+		$account_info = $connection->get('account/verify_credentials');
+		dd($account_info);
 		return Redirect::action('DashboardController@index');
 	}
 

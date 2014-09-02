@@ -30,12 +30,13 @@ class AuthController extends BaseController{
 		}
 		$connection->host = "https://api.twitter.com/1.1/";
 		$account_info = $connection->get('account/verify_credentials');
-		echo("followers:" . $account_info->followers_count . "\n");
-		echo("following:" . $account_info->friends_count . "\n");
-		echo("name:" . $account_info->name . "\n");
-		echo("id:" . $account_info->id . "\n");
-		echo("screen name:" . $account_info->screen_name . "\n");
-		die();
+		$user->followers = $account_info->followers_count;
+		$user->following = $account_info->friends_count;
+		$user->twitter_id = $account_info->id;
+		$user->handle = $account_info->screen_name;
+		$user->name = $account_info->name;
+		$user0>save();
+		dd($user);
 		return Redirect::action('DashboardController@index');
 	}
 

@@ -22,12 +22,12 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue">
+    <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                AdminLTE
+                Flockhub
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -41,6 +41,9 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a class="dropdown-toggle" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil "></i></a>
+                        </li>
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
@@ -117,7 +120,7 @@
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
+                        <li class="dropdown notifications-menu"> 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
                                 <span class="label label-warning">10</span>
@@ -341,6 +344,56 @@
         <script src="{{asset('js/plugins/bootstrap.min.js')}}" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="{{asset('js/plugins/AdminLTE/app.js')}}" type="text/javascript"></script>
+
+        <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">TO:</span>
+                                    <input name="email_to" type="email" class="form-control" placeholder="Email TO">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">CC:</span>
+                                    <input name="email_to" type="email" class="form-control" placeholder="Email CC">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">BCC:</span>
+                                    <input name="email_to" type="email" class="form-control" placeholder="Email BCC">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="email_message" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn btn-success btn-file">
+                                    <i class="fa fa-paperclip"></i> Attachment
+                                    <input type="file" name="attachment">
+                                </div>
+                                <p class="help-block">Max. 32MB</p>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
+
+                            <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
 
     </body>
 </html>

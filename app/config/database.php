@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'tmanager',
 			'username'  => 'root',
-			'password'  => 'Nsr10ojif??',
+			'password'  => 'KQP2xabC6xwsUC5',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

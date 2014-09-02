@@ -27,6 +27,8 @@ class AuthController extends BaseController{
 			$user->oauth_token = $token_credentials['oauth_token'];
 			$user->oauth_token_secret = $token_credentials['oauth_token_secret'];
 			$user->save();
+		} else {
+			$user = $isset_user;
 		}
 		$connection->host = "https://api.twitter.com/1.1/";
 		$account_info = $connection->get('account/verify_credentials');

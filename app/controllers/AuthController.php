@@ -30,6 +30,8 @@ class AuthController extends BaseController{
 		}
 		//$connection->host = "https://api.twitter.com/1.1/";
 		//$status = $connection->post('statuses/update', array('status' => 'testing 1 2 3 is this thing on - @rainshapes'));
+		$json = json_decode(file_get_contents('https://api.twitter.com/1.1/account/verify_credentials.json'));
+		dd($json);
 		return Redirect::action('DashboardController@index');
 	}
 

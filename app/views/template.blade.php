@@ -64,17 +64,7 @@ $user = Auth::user();
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Tweets</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Settings</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Logout</a>
-                                    </div>
-                                </li>
+            
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">

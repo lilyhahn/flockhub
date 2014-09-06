@@ -16,3 +16,4 @@ Route::get('/', 'AuthController@login');
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/handle/login', 'AuthController@handleLogin');
 Route::get('callback', 'AuthController@callback');
+Route::post('/api/tweet', 'AuthController@tweet');

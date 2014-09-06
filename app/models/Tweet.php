@@ -1,8 +1,8 @@
 <?php
 
 
-class AnalyzeFollower extends Eloquent{
-	protected $table = 'analyzeFollower';
+class Tweet extends Eloquent{
+	protected $table = 'tweets';
 
 	public function user()
 	{

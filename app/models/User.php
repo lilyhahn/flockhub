@@ -18,7 +18,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function analyzeFollower()
 	{
-		$this->hasOne('AnalyzeFollower');
+		$this->hasOne('AnalyzeFollower', 'user_id');
 	}
 
 	/**

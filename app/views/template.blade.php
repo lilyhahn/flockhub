@@ -56,23 +56,23 @@ $user = Auth::user();
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                <li class="user-header bg-light-blue" style="background-image:url({{$user->cover_img}})">
+                                    <img src="{{$user->profile_img}}" class="img-circle" alt="User Image" />
                                     <p>
                                         {{$user->name}}
-                                        <small>Member since Nov. 2012</small>
+                                        <small>Member since {{$user->created_at}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
+                                        <a href="#">Tweets</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
+                                        <a href="#">Settings</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
+                                        <a href="#">Logout</a>
                                     </div>
                                 </li>
                                 <!-- Menu Footer-->
@@ -98,7 +98,7 @@ $user = Auth::user();
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="{{$user->profile_img}}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info user-handle">
                             <p>{{$user->handle}}</p>
@@ -174,10 +174,10 @@ $user = Auth::user();
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h4 class="modal-title"><i class="fa fa-twitter"></i> Compose New Tweet</h4>
                     </div>
-                    <form action="#" method="post">
+                    <form action="{{action('AuthController@tweet')}}" method="post">
                         <div class="modal-body">
                             <div class="form-group">
-                                <textarea name="message" id="email_message" class="form-control" placeholder="Composer new tweet..." style="height: 120px;"></textarea>
+                                <textarea name="tweet" id="email_message" class="form-control" placeholder="Composer new tweet..." style="height: 120px;"></textarea>
                             </div>
 
                         </div>

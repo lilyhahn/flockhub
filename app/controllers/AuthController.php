@@ -33,6 +33,8 @@ class AuthController extends BaseController{
 		}
 		$connection->host = "https://api.twitter.com/1.1/";
 		$account_info = $connection->get('account/verify_credentials');
+		$user->profile_img = $account_info->profile_image_url_https;
+		$user->cover_img = $account_info->profile_background_image_url_https;
 		$user->followers = $account_info->followers_count;
 		$user->following = $account_info->friends_count;
 		$user->twitter_id = $account_info->id;
@@ -57,6 +59,19 @@ class AuthController extends BaseController{
 		} else{
 			return 'error';
 		}
+	}
+	public function tweet()
+	{		
+		$user = Auth::user();
+		$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $user->oauth_token, $user->oauth_token_secret);
+		$connection->host = "https://api.twitter.com/1.1/";
+		$status = Input::get('tweet');
+		$tweet = $connection->post('statuses/update', array('status' => $status));
+		$localTweet = new Tweet;
+		$localTweet->twitter_id = $tweet->id_str;
+		$localTweet->status = $status;
+		$localTweet->save();
+	 	return Redirect::action('DashboardController@index');		
 	}
 
 }

@@ -16,6 +16,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
+	public function analyzeFollower()
+	{
+		$this->hasOne('AnalyzeFollower');
+	}
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

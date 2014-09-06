@@ -56,7 +56,7 @@ $user = Auth::user();
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <li class="user-header bg-light-blue" style="background-image:url({{$user->cover_img}})">
+                                <li class="user-header bg-light-blue" style="background-image:url({{$user->cover_img}});background-size: cover;background-position: center; ">
                                     <img src="{{$user->profile_img}}" class="img-circle" alt="User Image" />
                                     <p>
                                         {{$user->name}}

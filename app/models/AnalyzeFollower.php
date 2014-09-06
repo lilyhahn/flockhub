@@ -6,7 +6,7 @@ class AnalyzeFollower extends Eloquent{
 
 	public function user()
 	{
-		$this->belongsTo('Twitteruser');
+		$this->belongsTo('User');
 	}
 
 }

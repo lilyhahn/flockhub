@@ -22,9 +22,9 @@ class AuthController extends BaseController{
 		$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 		$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $token_credentials['oauth_token'],
 		$token_credentials['oauth_token_secret']);
-		$isset_user = TwitterUser::where('oauth_token', '=', $token_credentials['oauth_token'])->first();
+		$isset_user = User::where('oauth_token', '=', $token_credentials['oauth_token'])->first();
 		if(is_null($isset_user)){
-			$user = new TwitterUser;
+			$user = new User;
 			$user->oauth_token = $token_credentials['oauth_token'];
 			$user->oauth_token_secret = $token_credentials['oauth_token_secret'];
 			$user->save();
@@ -49,8 +49,14 @@ class AuthController extends BaseController{
 		$analyze->percent_change = '%'. ($analyze->numerical_change % $user->followers) * $user->followers;
 		$analyze->followers = $user->followers;
 		$analyze->save();
-		dd($analyze);
-		return Redirect::action('DashboardController@index');
+		$user = User::where('twitter_id', '=', $account_info->id)->first();
+		$user = User::find($user->id);
+		Auth::login($user);
+		if(Auth::check()){
+			return Redirect::action('DashboardController@index');
+		} else{
+			return 'error';
+		}
 	}
 
 }

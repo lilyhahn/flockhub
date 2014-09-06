@@ -34,7 +34,7 @@ class AuthController extends BaseController{
 		$connection->host = "https://api.twitter.com/1.1/";
 		$account_info = $connection->get('account/verify_credentials');
 		$user->profile_img = $account_info->profile_image_url_https;
-		$user->cover_img = $account_info->profile_background_image_url_https;
+		$user->cover_img = $account_info->profile_banner_url;
 		$user->followers = $account_info->followers_count;
 		$user->following = $account_info->friends_count;
 		$user->twitter_id = $account_info->id;

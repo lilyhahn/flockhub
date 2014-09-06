@@ -2,7 +2,7 @@
 
 
 class AnalyzeFollower extends Eloquent{
-	protected $table = 'analyzefollower';
+	protected $table = 'analyzeFollower';
 
 	public function user()
 	{
